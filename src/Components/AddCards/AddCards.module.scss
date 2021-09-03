@@ -1,0 +1,61 @@
+.root{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 0 0.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    input{
+        padding: 1rem ;
+        width: 90%;
+        margin-right: 1rem;
+        border-radius: 5px;
+        border: 2px ridge transparent;
+        outline: none;
+        font-size: 15px;
+        transition: 0.3s;
+        &:focus{
+            box-shadow: 0 0 0 2pt rgba(204, 204, 204, 0.5);
+        }
+    }
+    button{
+        border: none;
+        outline: none;
+        padding: 1rem;
+        color: white;
+        background-color: rgba(51, 184, 51, 0.9);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: 0.3s;
+
+        &:focus{
+            box-shadow: 0 0 1pt 2pt #1DA1F2;
+        }
+        &:disabled{
+            background-color: rgba(138, 228, 138, 0.9);
+            cursor: no-drop;
+        }
+    }
+    .openBtn{
+        background-color: #002366;
+        margin-right: 1rem
+    }
+    .closeBtn{
+        background-color: rgb(242,101,39);
+    }
+    &::before{
+        content: 'Adding Card';
+        position: absolute;
+        left: 45%;
+        top: -30px;
+        font-size: 18px;
+        color: black;
+    }
+}

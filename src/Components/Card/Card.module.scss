@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.root{
+    width: 20%;
+    position: relative;
+    border-radius: 6px;
+    margin: 0.5rem ;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
+    transition: 0.3s;
+    border: transparent;
+    .card{
+        position: relative;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        background: transparent;
+        border: transparent;
+        width: 100%;
+        border-radius: 6px;
+        display: flex;
+        transition: 0.3s;
+    
+        .front, .back{
+            overflow: hidden;
+            backface-visibility: hidden;
+            transition: 0.6s;
+            width: 80%;
+            text-transform: capitalize;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+            padding: 10%;
+            margin: 0;
+        }
+    
+        .front{
+            transform: perspective(600px) rotateY(0deg);
+        }
+        
+        .back{
+            transform: perspective(600px) rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    
+        &::before{
+            content: '';
+            position: absolute;
+            left: 1px;
+            bottom: 0;
+            width: 0%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.800);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            right: 1px;
+            bottom: 0;
+            width: 0%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.800);
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        &:hover:before,
+        &:hover:after{
+            width: 49.6%;
+        }
+        &:hover{
+            box-shadow: 0px 0px 15px #c9c9c9;
+        }
+    }
+    .icons{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60px;
+        .delete{
+            color: rgb(223, 60, 60);
+            &:hover{
+                color: rgb(156, 18, 18);
+            }
+        }
+        .edit{
+            color: rgb(63, 63, 219);
+            &:hover{
+                color: rgb(19, 19, 185);
+            }
+        }
+    
+        .edit, .delete{
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+    }
+}
+
+
+.isRemembered{
+    .card{
+        .front{
+            transform: perspective(600px) rotateY(-180deg);
+        }
+        .back{
+            transform: perspective(600px) rotateY(0deg);
+            background-color: rgb(51, 184, 51);
+            color: white;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: 1px;
+            bottom: 0;
+            width: 0%;
+            height: 1px;
+            background-color:  #C71585;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            right: 1px;
+            bottom: 0;
+            width: 0%;
+            height: 1px;
+            background-color:  #C71585;
+            transition: 0.3s;
+            z-index: 1000;
+        }
+        &:hover:before,
+        &:hover:after{
+            width: 0%;
+        }
+        &:hover{
+            box-shadow: 0px 0px 15px #c9c9c9;
+        }
+    }
+}
+
+@keyframes delete{
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
